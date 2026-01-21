@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #container{
+            width:400px;
+            padding: 20px;
+            background-color: purple;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        input{
+            padding: 8px;
+            font-size: 2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: pink;
+            margin-bottom: 1rem;
+        }
+        #btnContainer{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        /* "*" is used to style all child of this container */
+        #btnContainer>*{
+            padding: 5px;
+            font-size: 2rem;
+            width: 80px;
+            border: none;
+            background-color: plum;
+            cursor: pointer;
+            border-radius: 5px;
+            /* changes cursor when we hover over the buttons */
+            &:active{
+                transform: scale(0.9);
+
+            }
+            /* & is used to add pseudoclass within the same class */
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <input type="text" disabled> <!-- disabled does not let the user add input to the input box -->
+        <div id="btnContainer">
+        <button>AC</button>
+        <button>del</button>
+        <button>/</button>
+        <button>*</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>-</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>+</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>%</button>
+        <button>00</button>
+        <button>0</button>
+        <button>.</button>
+        <button>=</button>
+        </div>
+    </div>
+    <script>
+        let input = document.querySelector("input");
+        let btn = document.querySelector("#btnContainer");
+        let arr = ["AC","del","/","*","7","8","9","-","4","5","6","+","1","2","3","%","00","0",".","="];
+
+     function calc(event){
+      
+    
+        if(arr.includes(event.target.innerText)){//arr.includes is used to check if the text is in the array or not 
+            if(event.target.innerText === "AC"){
+                input.value = "";
+                return;
+            }
+            if(event.target.innerText === "del"){
+                input.value = input.value.slice(0,-1);//slice is used to remove the last character from the input value.
+                return;
+            }
+            if(event.target.innerText === "="){
+                input.value = eval(input.value);//eval is used to evaluate the expression
+                return;
+            }
+            }
+            input.value += event.target.innerText; //if the text is in the array, then add it to the input value
+        }
+        
+
+     
+
+        btn.addEventListener("click",calc)
+    </script>
+</body>
+</html>
