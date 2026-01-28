@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        #middle{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+       <div id="middle">
+          <button id="inner">Click me
+            </button>
+          </div>
+        </div>
+    <script>
+        let outer = document.querySelector("#outer")
+        let middle = document.querySelector("#middle")
+        let inner = document.querySelector("#inner")
+
+        outer.addEventListener("click",function(){
+            alert("outer div")
+        },true)
+        middle.addEventListener("click",function(){
+            alert("middle div")
+        },false)
+        inner.addEventListener("click",function(event){
+           // event.stopPropagation()
+            alert("inner button")
+        },false)
+    </script>
+    <!-- event bubbling is a process in which an event is triggered on a nested element and it bubbles up to the parent elements until it reaches the root element. -->
+    <!-- event capturing is a process in which an event is triggered on a root element and it captures down to the nested elements until it reaches the target element. -->
+    <!-- event bubbling is the default behavior of the browser. -->
+    <!-- true is used to capture the event from the parent to the child element. -->
+    <!-- false is used to bubble the event from the child to the parent element. -->
+</body>
+</html>

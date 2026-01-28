@@ -1,0 +1,24 @@
+<!--javascript execution context is a stack that stores the execution of the code. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 10;
+        
+        function addition(num){
+            var ans = num + num;
+            return ans;
+        }
+        let res1 = addition(a);
+        let res2 = addition(50);
+    </script>
+    <!--global execution context is the execution context of the code that is not inside a function.    when the code is executed, the global execution context is created. 
+    single threaded execution means that the code is executed line by line.---->
+   
+</body>
+</html>
